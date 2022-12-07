@@ -12,6 +12,11 @@ pool:
 variables:
   buildConfiguration: 'Release'
 
+jobs:
+- job: ParallelTesting
+  strategy:
+    parallel: 2
+
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
